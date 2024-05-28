@@ -1,7 +1,4 @@
-import br.com.dio.desafio.dominio.Bootcamp;
-import br.com.dio.desafio.dominio.Curso;
-import br.com.dio.desafio.dominio.Dev;
-import br.com.dio.desafio.dominio.Mentoria;
+import br.com.dio.desafio.dominio.*;
 
 import java.time.LocalDate;
 
@@ -57,6 +54,36 @@ public class Main {
         System.out.println("Conteúdos Inscritos João:" + devJoao.getConteudosInscritos());
         System.out.println("Conteúdos Concluidos João:" + devJoao.getConteudosConcluidos());
         System.out.println("XP:" + devJoao.calcularTotalXp());
+
+
+        Biblioteca biblioteca = new Biblioteca();
+
+        biblioteca.adicionarLivro("Effective Java", "Joshua Bloch", LocalDate.of(2017, 12, 28));
+        biblioteca.adicionarLivro("Java: The Complete Reference", "Herbert Schildt", LocalDate.of(2018, 4, 11));
+        biblioteca.adicionarLivro("Clean Code: A Handbook of Agile Software Craftsmanship", "Robert C. Martin", LocalDate.of(2008, 8, 1));
+        biblioteca.adicionarLivro("Head First Java", "Kathy Sierra e Bert Bates", LocalDate.of(2005, 2, 1));
+        biblioteca.adicionarLivro("Java Concurrency in Practice", "Brian Goetz, Tim Peierls, Joshua Bloch, Joseph Bowbeer, David Holmes, e Doug Lea", LocalDate.of(2006, 5, 9));
+
+        System.out.println("Lista de livros na biblioteca:");
+        biblioteca.listarLivros();
+
+        System.out.println("\nTentando emprestar o livro 'Effective Java':");
+        biblioteca.emprestarLivro("Effective Java");
+
+        System.out.println("\nLista de livros após empréstimo:");
+        biblioteca.listarLivros();
+
+        System.out.println("\nTentando devolver o livro 'Effective Java':");
+        biblioteca.devolverLivro("Effective Java");
+
+        System.out.println("\nLista de livros após devolução:");
+        biblioteca.listarLivros();
+
+        System.out.println("\nTentando devolver o livro 'Effective Java' novamente:");
+        biblioteca.devolverLivro("Effective Java");
+
+        System.out.println("\nTentando devolver um livro não existente:");
+        biblioteca.devolverLivro("The Catcher in the Rye");
 
     }
 
